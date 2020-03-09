@@ -1,6 +1,6 @@
 <div class="container bgcolor">
     <h1>URL Shortener</h1>
-    <form action="https://boiling-depths-40974.herokuapp.com/getUrl" method="POST">
+    <form action="http://localhost:5000/getUrl" method="POST">
         <label for="fullUrl">URL</label>
         <input type="url" name="fullUrl" id="fullUrl" class="col mb-2" />
         <button type="submit" class="btn btn-primary">Shorten Url</button>
@@ -13,13 +13,14 @@
             </tr>
         </thead>
         <tbody>
-            {{#each @model as |url|}}
+            {{#each @model.urls as |url|}}
             <tr>
-                <td><a href="{{url.url}}">{{url.url}}</a></td>
-                <td><a href="{{url.tiny}}">{{url.tiny}}</a></td>
+                <td><a href="{{url.target_url}}">{{url.target_url}}</a></td>
+                <td><a href="{{url.tiny_url}}">{{url.tiny_url}}</a></td>
 
             </tr>
             {{/each}}
+            {{!-- <UrlList /> --}}
         </tbody>
     </table>
 </div>
